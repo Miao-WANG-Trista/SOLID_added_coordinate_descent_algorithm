@@ -8,7 +8,7 @@ class CoordinateDescent:
     #Import from stackexchange
     #https://stackoverflow.com/questions/51977418/coordinate-descent-in-python
 
-    def coordinate_descent(X, y, param, iter=300):
+    def coordinate_descent(X, y, param, iter=5):
 
         cost_history = [0] * (iter+1)
         cost_history[0] = CoordinateDescent.costf(X, y, param)
