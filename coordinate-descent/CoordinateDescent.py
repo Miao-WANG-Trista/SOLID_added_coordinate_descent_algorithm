@@ -22,6 +22,3 @@ class CoordinateDescent:
 
         return param, cost_history
 
-#this is a test 
-
-### a comment
