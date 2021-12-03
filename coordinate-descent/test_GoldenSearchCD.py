@@ -23,6 +23,9 @@ class Algorithm(CDGS.CDGoldenSearch):
 
 
 test = Algorithm(Algorithm.func, Algorithm.func_val, 4, -1.5, 1.5)
-x_min, y_min = test.run()
+x_min = test.run()
+y_min= Algorithm.func_val(x_min)
+print('optimal point is: ', x_min)
+print('optimal function value is: ', y_min)
 
 

@@ -58,7 +58,7 @@ def gold_search(func, xu, xl, absolutePrecision=1e-10, itr=1000):
     
 class CDGoldenSearch:
     
-    def __init__ (self, func, n, lower_bound, higher_bound, max_iter=1000):
+    def __init__ (self, func, func_val,n, lower_bound, higher_bound, max_iter=1000):
         """
         :param func: objective function
         :param n: degree of objective function
@@ -67,6 +67,7 @@ class CDGoldenSearch:
         :param max_iter: times of iterations to stop algorithm once reached
         """
         self.func = func
+        self.func_val=func_val
         self.n = n
         self.lower_bound = lower_bound
         self.higher_bound = higher_bound
@@ -100,16 +101,19 @@ class CDGoldenSearch:
              for _ in range(self.n) ]
         for i in range(self.n):
             init_X[i] = X[i]
-        
+        value=[]
         opt_X = init_X
        
         for i in range(self.max_iter):
+
             for k in range(self.n):
                 # optimize from x[0] and then x[1], x[2]...
                 list_p = opt_X[0:k] + opt_X[k+1:self.n]
                 opt_X[k] = gold_search(lambda x: self.func(x, k, list_p, self.n),
                                      self.lower_bound,self.higher_bound)
-        
+            value.append(self.func_val(opt_X))
+            if (i>1) and (value[i]-value[i-1] < 1e-10):
+                break
         return opt_X
         
 
