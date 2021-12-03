@@ -1,7 +1,5 @@
 #As provided on stackoverflow, we can use the dataset to test out model
 import matplotlib.pyplot as plt
-import CoordinateDescent as cd
-import sklearn
 from sklearn.datasets import fetch_california_housing
 from sklearn.preprocessing import StandardScaler
 import numpy as np
