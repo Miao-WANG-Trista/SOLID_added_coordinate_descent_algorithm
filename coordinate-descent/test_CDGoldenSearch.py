@@ -1,6 +1,6 @@
-import CDGoldenSearch
+import CDGoldenSearch as CDGS
 
-class Algorithm(CDGoldenSearch.CDGoldenSearch):
+class Algorithm(CDGS.CDGoldenSearch):
 
     """
     Minimze function X1 + X2**2 + 2*X3**2 + 3*X4**3
