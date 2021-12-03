@@ -19,3 +19,5 @@ Advanced Optimization - 2021/22
 - [test_GoldenSearchCD.py](https://github.com/felixbastian/SOLID_add-on_coordinate-descent/blob/main/coordinate-descent/test_GoldenSearchCD.py) : Minimize a given  function
 
   
+## Comparison with SGD
+- [comparison_sgd&encd.py](https://github.com/felixbastian/SOLID_add-on_coordinate-descent/blob/main/coordinate-descent/comparison_sgd%26encd.py)
