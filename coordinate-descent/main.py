@@ -14,21 +14,29 @@ data = fetch_california_housing(as_frame=True)
 X, y = data.data, data.target
 
 X = StandardScaler().fit_transform(X)  # for easy convergence
-X = np.hstack([X, np.ones((X.shape[0], 1))])
+#X = np.hstack([X, np.ones((X.shape[0], 1))])
 
-param = np.zeros(X.shape[1])
+#param = np.zeros(X.shape[1])
 
 
 #Here the function "coordinate_descent gets called that we need to refer to
-cret, cxret = cd.CoordinateDescent.coordinate_descent(X, y, param.copy())
-print(cret)
+#cret, cxret = cd.CoordinateDescent.coordinate_descent(X, y, param.copy())
+#print(cret)
 
-plt.plot(range(len(cxret)), cxret, label="CD")
+#plt.plot(range(len(cxret)), cxret, label="CD")
+
 
 #Elastic net using coordinate descent
-bstar = encd.ElasticNetCD.elastic_net(X, y, 0.2, 0.3)
-print(bstar)
+B_hat, cost_history, objective=encd.ElasticNetCD.elastic_net(X, y, 0.8, 0.3, 1e-4, 10)
+print(B_hat)
+print(cost_history)
+print(objective)
 
-
-
+plt.plot(range(len(cost_history)), cost_history, label="CD", color='r')
+# Add title and axis names
+plt.title('Evolution of Elastic Net loss function')
+plt.xlabel('Iterations (Path length)')
+plt.ylabel('Loss function')
 plt.show()
+
+
